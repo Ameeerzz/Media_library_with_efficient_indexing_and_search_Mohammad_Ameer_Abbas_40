@@ -1,4 +1,4 @@
-\📌 Project Overview
+📌 Project Overview
 
 This project is a C-based Media Catalog System that efficiently stores, indexes, and searches large collections of media files using optimized data structures such as hash tables and inverted indexes.
 It allows fast searching by title, artist, and genre while supporting sorting and persistent storage through file handling.
