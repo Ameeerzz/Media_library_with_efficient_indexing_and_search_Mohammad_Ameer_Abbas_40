@@ -76,7 +76,53 @@ void displayMedia() {
     }
 }
 
+// ---- Search (exact or substring) ----
+void searchTitle() {
+    if (count == 0) {
+        printf("No media to search.\n");
+        return;
+    }
 
+    int type;
+    printf("\nSearch type:\n");
+    printf("1. Exact title\n");
+    printf("2. Substring in title\n");
+    printf("Enter choice: ");
+    scanf("%d", &type);
+    getchar(); // remove '\n'
+
+    char query[100];
+    printf("Enter title to search: ");
+    fgets(query, 100, stdin);
+    removeNewline(query);
+
+    int found = 0;
+    printf("\n--- Search Results ---\n");
+
+    for (int i = 0; i < count; i++) {
+        int match = 0;
+        if (type == 1) { // exact
+            if (strcmp(library[i].title, query) == 0)
+                match = 1;
+        } else {         // substring
+            if (strstr(library[i].title, query) != NULL)
+                match = 1;
+        }
+
+        if (match) {
+            found = 1;
+            printf("ID: %d | Title: %s | Artist: %s | Genre: %s | Year: %d\n",
+                   library[i].id,
+                   library[i].title,
+                   library[i].artist,
+                   library[i].genre,
+                   library[i].year);
+        }
+    }
+
+    if (!found)
+        printf("No matches found.\n");
+}
 
 // ---- Main menu ----
 int main() {
