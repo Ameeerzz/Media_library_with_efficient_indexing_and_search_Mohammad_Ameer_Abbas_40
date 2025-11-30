@@ -28,6 +28,36 @@ void removeNewline(char *str) {
     }
 }
 
+// ---- Batch import from CSV ----
+// Very simple parsing: fields must not contain commas.
+void loadCSV(const char *filename) {
+    FILE *fp = fopen(filename, "r");
+    if (!fp) {
+        printf("Could not open file: %s\n", filename);
+        return;
+    }
+
+    char line[300];
+
+    // Skip header line
+    if (fgets(line, sizeof(line), fp) == NULL) {
+        fclose(fp);
+        printf("Empty file.\n");
+        return;
+    }
+
+    while (fgets(line, sizeof(line), fp) && count < MAX_MEDIA) {
+        Media m;
+        if (sscanf(line, "%d,%99[^,],%99[^,],%49[^,],%d",
+                   &m.id, m.title, m.artist, m.genre, &m.year) == 5) {
+            library[count++] = m;
+        }
+    }
+
+    fclose(fp);
+    printf("Loaded %d items from CSV.\n", count);
+}
+
 // ---- Display all media ----
 void displayMedia() {
     if (count == 0) {
