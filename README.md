@@ -1,92 +1,48 @@
-📌 Project Overview
+# Media Library Management System (C Program)
 
-This project is a C-based Media Catalog System that efficiently stores, indexes, and searches large collections of media files using optimized data structures such as hash tables and inverted indexes.
-It allows fast searching by title, artist, and genre while supporting sorting and persistent storage through file handling.
+The **Media Library Management System** is a simple C program that stores and manages media items using arrays and structures. It allows users to add, edit, delete, display, and search media, and supports batch import from a CSV file. The project demonstrates basic C concepts such as file handling, string operations, and menu-driven program design.
 
-🎯 Objectives
+---
 
-Design an efficient media indexing and search system
+## Features
+- Add new media items  
+- Edit existing media  
+- Delete media by ID  
+- Display all media  
+- Search by title (exact or substring)  
+- Batch import from CSV (`media.csv`)  
+- Menu-driven interface  
 
-Apply hashing and linked list concepts
+---
 
-Implement dynamic memory allocation
+Member 1 - Akanksha Singh
+⦁	create the main menu system 
+⦁	connect menu options to each function 
+⦁	manage the main() loop
+⦁	make sure program compiles and runs
+⦁	code for the display functions of the program
 
-Provide fast search and sorting functionality
+Member 2 - Yuvraj
+⦁	Implement the 2 big functions:
+    addmedia()
+    editmedia()
+    displaymedia()
+⦁	write code to read user input 
+⦁	store values inside array
+⦁	edit existing media files
+⦁	make sure input handling is correct
 
-Build real-world experience with file I/O in C
+Member 3 - Anant Tiwari
+⦁	Handle all CSV importing 
+⦁	implement searching 
+⦁	write loadCSV()
+⦁	write search functions
+⦁	test with sample CSV file
 
-🚀 Features
-
-Store media metadata:
-
-ID
-
-Title
-
-Artist / Creator
-
-Genre
-
-Year
-
-File Path
-
-Fast searching using:
-
-Hash Table (mod-based indexing)
-
-Inverted Index with Linked Lists
-
-Supports:
-
-Add media
-
-Edit media
-
-Delete media
-
-Batch import from CSV files
-
-Allows:
-
-Exact search
-
-Substring-based search
-
-Sorted display of media:
-
-By Title
-
-By Year
-
-Uses:
-
-Dynamic memory allocation
-
-Pointer-based linked lists
-
-Supports file storage using File I/O
-
-🛠️ Technologies & Concepts Used
-
-C Programming
-
-Structures
-
-Pointers
-
-Arrays
-
-Linked Lists
-
-Hashing
-
-Sorting Algorithms
-
-Searching Algorithms
-
-Dynamic Memory Management
-
-File Handling
-
-String Parsing
+Member 4 - Mohammad Ameer Abbas
+⦁	Setup and maintain GitHub repository
+⦁	Documentation
+⦁	Upload files to GitHub
+⦁	Create the README file
+⦁	Add teammates as collaborators
+⦁	Ensure the repo is organized
