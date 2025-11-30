@@ -105,7 +105,7 @@ void displayMedia() {
                library[i].artist,
                library[i].genre,
                library[i].year);
-    }
+    }
 }
 
 // ---- Edit media by ID ----
