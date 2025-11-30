@@ -58,6 +58,38 @@ void loadCSV(const char *filename) {
     printf("Loaded %d items from CSV.\n", count);
 }
 
+// ---- Add media ----
+void addMedia() {
+    if (count >= MAX_MEDIA) {
+        printf("Library full.\n");
+        return;
+    }
+
+    Media m;
+
+    printf("Enter ID: ");
+    scanf("%d", &m.id);
+    getchar(); // remove leftover '\n'
+
+    printf("Enter title: ");
+    fgets(m.title, 100, stdin);
+    removeNewline(m.title);
+
+    printf("Enter artist: ");
+    fgets(m.artist, 100, stdin);
+    removeNewline(m.artist);
+
+    printf("Enter genre: ");
+    fgets(m.genre, 50, stdin);
+    removeNewline(m.genre);
+
+    printf("Enter year: ");
+    scanf("%d", &m.year);
+
+    library[count++] = m;
+    printf("Media added.\n");
+}
+
 // ---- Display all media ----
 void displayMedia() {
     if (count == 0) {
