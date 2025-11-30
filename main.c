@@ -164,6 +164,39 @@ void editMedia() {
     printf("Media updated.\n");
 }
 
+// ---- Delete media by ID ----
+void deleteMedia() {
+    if (count == 0) {
+        printf("No media to delete.\n");
+        return;
+    }
+
+    int id;
+    printf("Enter ID of media to delete: ");
+    scanf("%d", &id);
+
+    int index = -1;
+    for (int i = 0; i < count; i++) {
+        if (library[i].id == id) {
+            index = i;
+            break;
+        }
+    }
+
+    if (index == -1) {
+        printf("Media with ID %d not found.\n", id);
+        return;
+    }
+
+    // Shift all later items left by one
+    for (int i = index; i < count - 1; i++) {
+        library[i] = library[i + 1];
+    }
+    count--;
+
+    printf("Media deleted.\n");
+}
+
 // ---- Search (exact or substring) ----
 void searchTitle() {
     if (count == 0) {
