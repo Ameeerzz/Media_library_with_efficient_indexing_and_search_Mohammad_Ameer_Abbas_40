@@ -27,3 +27,21 @@ void removeNewline(char *str) {
         i++;
     }
 }
+
+// ---- Display all media ----
+void displayMedia() {
+    if (count == 0) {
+        printf("No media in library.\n");
+        return;
+    }
+
+    printf("\n--- Media Library ---\n");
+    for (int i = 0; i < count; i++) {
+        printf("ID: %d | Title: %s | Artist: %s | Genre: %s | Year: %d\n",
+               library[i].id,
+               library[i].title,
+               library[i].artist,
+               library[i].genre,
+               library[i].year);
+    }
+}
