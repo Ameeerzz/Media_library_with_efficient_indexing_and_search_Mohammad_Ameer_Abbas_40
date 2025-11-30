@@ -45,3 +45,48 @@ void displayMedia() {
                library[i].year);
     }
 }
+
+
+
+// ---- Main menu ----
+int main() {
+    int choice;
+
+    while (1) {
+        printf("\nMedia Library Menu\n");
+        printf("1. Load from CSV (batch import)\n");
+        printf("2. Add media\n");
+        printf("3. Edit media\n");
+        printf("4. Delete media\n");
+        printf("5. Display all media\n");
+        printf("6. Search by title (exact / substring)\n");
+        printf("7. Exit\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                loadCSV("media.csv");
+                break;
+            case 2:
+                addMedia();
+                break;
+            case 3:
+                editMedia();
+                break;
+            case 4:
+                deleteMedia();
+                break;
+            case 5:
+                displayMedia();
+                break;
+            case 6:
+                searchTitle();
+                break;
+            case 7:
+                return 0;
+            default:
+                printf("Invalid option.\n");
+        }
+    }
+}
