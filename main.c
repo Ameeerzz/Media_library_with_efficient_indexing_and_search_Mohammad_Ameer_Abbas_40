@@ -108,6 +108,62 @@ void displayMedia() {
     }
 }
 
+// ---- Edit media by ID ----
+void editMedia() {
+    if (count == 0) {
+        printf("No media to edit.\n");
+        return;
+    }
+
+    int id;
+    printf("Enter ID of media to edit: ");
+    scanf("%d", &id);
+    getchar(); // remove '\n'
+
+    int index = -1;
+    for (int i = 0; i < count; i++) {
+        if (library[i].id == id) {
+            index = i;
+            break;
+        }
+    }
+
+    if (index == -1) {
+        printf("Media with ID %d not found.\n", id);
+        return;
+    }
+
+    Media *m = &library[index];
+
+    printf("Editing media with ID %d\n", m->id);
+    printf("Current title: %s\n", m->title);
+    printf("Enter new title (or press Enter to keep same): ");
+    char buffer[100];
+    fgets(buffer, 100, stdin);
+    removeNewline(buffer);
+    if (buffer[0] != '\0') strcpy(m->title, buffer);
+
+    printf("Current artist: %s\n", m->artist);
+    printf("Enter new artist (or press Enter to keep same): ");
+    fgets(buffer, 100, stdin);
+    removeNewline(buffer);
+    if (buffer[0] != '\0') strcpy(m->artist, buffer);
+
+    printf("Current genre: %s\n", m->genre);
+    printf("Enter new genre (or press Enter to keep same): ");
+    fgets(buffer, 50, stdin);
+    removeNewline(buffer);
+    if (buffer[0] != '\0') strcpy(m->genre, buffer);
+
+    printf("Current year: %d\n", m->year);
+    printf("Enter new year (or 0 to keep same): ");
+    int newYear;
+    scanf("%d", &newYear);
+    if (newYear != 0) m->year = newYear;
+
+    printf("Media updated.\n");
+}
+
 // ---- Search (exact or substring) ----
 void searchTitle() {
     if (count == 0) {
